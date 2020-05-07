@@ -1,0 +1,33 @@
+{
+  "name": "@piros/ioc",
+  "version": "0.0.2",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "tsc && node ./dist/index.js",
+    "build": "tsc",
+    "pre-publish": "node prepublish.js",
+    "publish:lib": "npm run build && npm run pre-publish && npm publish dist/ --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Binarysearch/piros-ioc.git"
+  },
+  "author": "Antonio Ruiz Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Binarysearch/piros-ioc/issues"
+  },
+  "homepage": "https://github.com/Binarysearch/piros-ioc#readme",
+  "devDependencies": {
+    "ts-loader": "^7.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.8.3"
+  }
+}
