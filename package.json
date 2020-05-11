@@ -1,6 +1,6 @@
 {
   "name": "@piros/ioc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -27,6 +27,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@types/node": "^13.13.5",
     "reflect-metadata": "^0.1.13",
     "typescript": "^3.8.3"
   }
