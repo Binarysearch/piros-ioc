@@ -10,8 +10,12 @@ const config = JSON.parse(configFileContent);
 
 export function Value(location: string){
     return function(target: Object, propertyName: string) {
-        target[propertyName] = getObjectPropertyValue(config, location, location);
+        target[propertyName] = getConfigValue(location);
     }
+}
+
+export function getConfigValue<T>(path: string): T {
+    return getObjectPropertyValue(config, path, path);
 }
 
 function getObjectPropertyValue(target: Object, path: string, originalPath: string): any {

@@ -9,10 +9,10 @@ export interface Provider {
 
 export class Injector {
 
-    private static injectables: Map<Type<any>, Object> = new Map();
-    private static providers: Provider[];
+    private injectables: Map<Type<any>, Object> = new Map();
+    private providers: Provider[];
 
-    static resolve<T>(type: Type<T>): T {
+    public resolve<T>(type: Type<T>): T {
         const result = this.getInjectable(type);
         if (result) {
             return <T>result;
@@ -21,14 +21,14 @@ export class Injector {
         }
     }
 
-    public static setProviders(providers?: Provider[]) {
+    public setProviders(providers?: Provider[]) {
         console.log('SET providers', providers);
         if (providers) {
             this.providers = providers;
         }
     }
 
-    private static create<T>(type: Type<T>): T {
+    private create<T>(type: Type<T>): T {
         
         const dfs = (dep: Type<any>) => {
             if (this.hasInjectable(dep)) {
@@ -65,7 +65,7 @@ export class Injector {
         } 
     }
 
-    private static translateType<T>(type: Type<T>): Type<T> {
+    private translateType<T>(type: Type<T>): Type<T> {
         if (!this.providers) {
             return type;
         }
@@ -78,20 +78,20 @@ export class Injector {
         }
     }
 
-    private static hasInjectable<T>(type: Type<T>): boolean {
+    private hasInjectable<T>(type: Type<T>): boolean {
         return this.injectables.has(this.translateType(type));
     }
 
-    private static setInjectable<T>(type: Type<T>, injectable: T): void {
+    private setInjectable<T>(type: Type<T>, injectable: T): void {
         console.log('CREATED INJECTABLE', type);
         this.injectables.set(this.translateType(type), injectable);
     }
 
-    private static getInjectable<T>(type: Type<T>): T {
+    private getInjectable<T>(type: Type<T>): T {
         return <T>this.injectables.get(this.translateType(type));
     }
 
-    private static getDependencies(type: Type<any>): Type<any>[] {
+    private getDependencies(type: Type<any>): Type<any>[] {
         const declaredDependencies: Type<any>[] = Reflect.getOwnMetadata('design:paramtypes', type) || [];
         if (this.providers) {
             return declaredDependencies.map(declared => this.translateType(declared));
