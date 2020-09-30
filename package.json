@@ -1,6 +1,6 @@
 {
   "name": "@piros/ioc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,14 +21,11 @@
   },
   "homepage": "https://github.com/Binarysearch/piros-ioc#readme",
   "devDependencies": {
-    "ts-loader": "^7.0.0",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "ts-loader": "8.0.4"
   },
   "dependencies": {
-    "@types/node": "^13.13.5",
-    "reflect-metadata": "^0.1.13",
-    "typescript": "^3.8.3"
+    "@types/node": "14.11.2",
+    "reflect-metadata": "0.1.13",
+    "typescript": "4.0.3"
   }
 }
