@@ -22,7 +22,6 @@ export class Injector {
     }
 
     public setProviders(providers?: Provider[]) {
-        console.log('SET providers', providers);
         if (providers) {
             this.providers = providers;
         }
@@ -83,7 +82,6 @@ export class Injector {
     }
 
     private setInjectable<T>(type: Type<T>, injectable: T): void {
-        console.log('CREATED INJECTABLE', type);
         this.injectables.set(this.translateType(type), injectable);
     }
 
