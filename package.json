@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Binarysearch/piros-ioc#readme",
   "devDependencies": {
-    "ts-loader": "8.0.4"
+    "ts-loader": "8.4.0"
   },
   "dependencies": {
     "@types/node": "14.11.2",
